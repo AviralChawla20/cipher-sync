@@ -1,6 +1,7 @@
 "use client"
 
 import React from 'react';
+import Image from 'next/image';
 
 const LandingPage: React.FC = () => {
   return (
@@ -96,7 +97,7 @@ const LandingPage: React.FC = () => {
 
             {/* Right Col */}
             <div className="w-full xl:w-3/5 p-12 overflow-hidden">
-              <img className="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="macbook.svg" alt="MacBook" />
+              <Image className="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="macbook.svg" alt="MacBook" />
             </div>
 
             <div className="mx-auto md:pt-16">
@@ -104,8 +105,8 @@ const LandingPage: React.FC = () => {
                 Download our app:
               </p>
               <div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
-                <img src="App Store.svg" className="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" alt="App Store" />
-                <img src="Play Store.svg" className="h-12 transform hover:scale-125 duration-300 ease-in-out" alt="Play Store" />
+                <Image src="App Store.svg" className="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" alt="App Store" />
+                <Image src="Play Store.svg" className="h-12 transform hover:scale-125 duration-300 ease-in-out" alt="Play Store" />
               </div>
             </div>
 
