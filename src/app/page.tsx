@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
+import Spline from '@splinetool/react-spline';
+import styled from 'styled-components';
 
 const LandingPage: React.FC = () => {
   return (
@@ -28,7 +30,7 @@ const LandingPage: React.FC = () => {
       </head>
 
       <body className="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style={{ backgroundImage: "url('')" }}>
-        <div className="h-full">
+        <div className="h-full relative" style={{ top: '0', left: '0', zIndex: '10' }}>
           {/* Nav */}
           <div className="w-full container mx-auto">
             <div className="w-full flex items-center justify-between">
@@ -96,22 +98,30 @@ const LandingPage: React.FC = () => {
             </div>
 
             {/* Right Col */}
-            <div className="w-full xl:w-3/5 p-12 overflow-hidden">
+            {/* <div className="w-full xl:w-3/5 p-12 overflow-hidden">
               <Image className="mx-auto w-full md:w-4/5 transform -rotate-6 transition hover:scale-105 duration-700 ease-in-out hover:rotate-6" src="macbook.svg" alt="MacBook" />
-            </div>
-
+            </div> */}
+            {/* <div className="w-full xl:w-3/5 p-12 overflow-hidden">
+              <Spline scene="https://prod.spline.design/fPLMyfl-Ht8fb4PG/scene.splinecode" />
+            </div> */}
             <div className="mx-auto md:pt-16">
               <p className="text-blue-400 font-bold pb-8 lg:pb-6 text-center">
                 Download our app:
               </p>
-              <div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
+              {/* <div className="flex w-full justify-center md:justify-start pb-24 lg:pb-0 fade-in">
                 <Image src="App Store.svg" className="h-12 pr-12 transform hover:scale-125 duration-300 ease-in-out" alt="App Store" />
                 <Image src="Play Store.svg" className="h-12 transform hover:scale-125 duration-300 ease-in-out" alt="Play Store" />
-              </div>
+              </div> */}
             </div>
 
             {/* Footer */}
           </div>
+        </div>
+        <div className="relative h-screen group" style={{ position: "absolute", top: '0', left: '0' }}>
+          <Spline
+            scene="https://prod.spline.design/fPLMyfl-Ht8fb4PG/scene.splinecode"
+            className="fixed top-0 left-0 w-full h-full z-[-1] transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:rotate-6"
+          />
         </div>
       </body>
     </>
