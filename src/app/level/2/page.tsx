@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLightbulb } from '@fortawesome/free-solid-svg-icons';
 import Spline from '@splinetool/react-spline';
-import '@fortawesome/fontawesome-free/css/all.css'; // Ensure this line is included
+// import '@fortawesome/fontawesome-free/css/all.css'; // Ensure this line is included
 
 // Define the component
 export default function App() {
