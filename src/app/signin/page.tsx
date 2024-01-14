@@ -16,6 +16,11 @@ const LoginPage = () => {
         console.log('Google Login');
     };
 
+    const handleFacebookSignup = () => {
+        // Implement your Facebook signup logic here
+        console.log('Facebook Login');
+    };
+
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
             <div className="w-96 p-8 bg-white rounded shadow-lg">
@@ -54,7 +59,7 @@ const LoginPage = () => {
                     className="bg-blue-500 text-white p-2 rounded-md w-full mb-4 focus:outline-none hover:bg-blue-600"
                     onClick={handleEmailLogin}
                 >
-                    Email Login
+                    Login with Email
                 </button>
 
                 {/* Or Line */}
@@ -77,6 +82,23 @@ const LoginPage = () => {
                         className="w-6 h-6 mr-2"
                     />
                     Login with Google
+                </a>
+                {/* Second Or Line */}
+                <div className="flex items-center my-2">
+                    <div className="flex-1 h-px bg-gray-300"></div>
+                    <span className="mx-4 text-gray-500">or</span>
+                    <div className="flex-1 h-px bg-gray-300"></div>
+                </div>
+
+                {/* Signup with Facebook */}
+                <a
+                    href="#"
+                    // className="flex items-center justify-center bg-blue-600 text-white p-2 rounded-md w-full focus:outline-none hover:bg-blue-700"
+                    className="flex items-center justify-center bg-white text-black border border-gray-300 shadow-md p-2 rounded-md w-full focus:outline-none hover:bg-gray-200"
+                    onClick={handleFacebookSignup}
+                >
+                    <img src="https://i.imgur.com/2iDX5RQ.png" alt="Facebook Logo" className="w-6 h-6 mr-2" />
+                    Login with Facebook
                 </a>
             </div>
         </div>
