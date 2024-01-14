@@ -1,11 +1,13 @@
 // pages/signup.tsx
 "use client";
 import { useState } from 'react';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const SignupPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleEmailSignup = () => {
         // Implement your email signup logic here
@@ -22,6 +24,10 @@ const SignupPage = () => {
         console.log('Facebook Signup');
     };
 
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
             <div className="w-96 p-8 bg-white rounded shadow-lg">
@@ -35,9 +41,10 @@ const SignupPage = () => {
                     <input
                         type="email"
                         id="email"
-                        className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                        className="mt-1 p-2 w-full border rounded-md bg-gray-50 focus:outline-none focus:border-blue-500"
                         placeholder="Enter your email"
                         value={email}
+                        style={{ color: "black" }}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
@@ -46,14 +53,23 @@ const SignupPage = () => {
                     <label htmlFor="password" className="block text-sm font-medium text-gray-600">
                         Password
                     </label>
-                    <input
-                        type="password"
-                        id="password"
-                        className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
-                        placeholder="Enter your password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
+                    <div className="relative">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            className="mt-1 p-2 w-full border rounded-md bg-gray-50 focus:outline-none focus:border-blue-500"
+                            placeholder="Enter your password"
+                            value={password}
+                            style={{ color: "black" }}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <div
+                            className="absolute top-0 right-0 m-2 cursor-pointer"
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? <FaEyeSlash /> : <FaEye />}
+                        </div>
+                    </div>
                 </div>
 
                 <div className="mb-4">
@@ -63,9 +79,10 @@ const SignupPage = () => {
                     <input
                         type="password"
                         id="confirmPassword"
-                        className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
+                        className="mt-1 p-2 w-full border rounded-md bg-gray-50 focus:outline-none focus:border-blue-500"
                         placeholder="Confirm your password"
                         value={confirmPassword}
+                        style={{ color: "black" }}
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     />
                 </div>
