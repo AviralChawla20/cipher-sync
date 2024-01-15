@@ -18,17 +18,6 @@ const LoginPage = () => {
 
         // Implement your email authentication logic here
         console.log('Email Login:', email, password);
-        try {
-            let { data, error } = await supabase.auth.signInWithPassword({
-                email: email,
-                password: password,
-            });
-
-            if (data) router.refresh();
-        }
-        catch (error) {
-            console.log(error);
-        }
     };
 
     const handleGoogleLogin = async () => {
