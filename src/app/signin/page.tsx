@@ -2,7 +2,7 @@
 "use client";
 import { useState } from 'react';
 import { supabase } from "@/lib/supabase";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 
 
 const LoginPage = () => {
@@ -10,9 +10,12 @@ const LoginPage = () => {
     const [password, setPassword] = useState('');
 
 
+    const router = useRouter();
+
+
 
     const handleEmailLogin = async () => {
-        const router = useRouter();
+
         // Implement your email authentication logic here
         console.log('Email Login:', email, password);
         try {
@@ -21,7 +24,7 @@ const LoginPage = () => {
                 password: password,
             });
 
-            if (data) router.reload();
+            if (data) router.refresh();
         }
         catch (error) {
             console.log(error);
@@ -29,7 +32,7 @@ const LoginPage = () => {
     };
 
     const handleGoogleLogin = async () => {
-        const router = useRouter();
+        // const router = useRouter();
         // Implement your Google OAuth logic here
         console.log('Google Login');
         try {
@@ -43,7 +46,7 @@ const LoginPage = () => {
                 },
             });
 
-            if (data) console.log(data); router.reload();
+            if (data) console.log(data); router.refresh();
         } catch (error) {
             console.error('Google login error:', error);
         }
