@@ -2,16 +2,17 @@
 "use client";
 import { useState } from 'react';
 import { supabase } from "@/lib/supabase";
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const router = useRouter();
+
 
     const handleEmailLogin = async () => {
+        const router = useRouter();
         // Implement your email authentication logic here
         console.log('Email Login:', email, password);
         try {
@@ -20,16 +21,32 @@ const LoginPage = () => {
                 password: password,
             });
 
-            if (data) router.refresh();
+            if (data) router.reload();
         }
         catch (error) {
             console.log(error);
         }
     };
 
-    const handleGoogleLogin = () => {
+    const handleGoogleLogin = async () => {
+        const router = useRouter();
         // Implement your Google OAuth logic here
         console.log('Google Login');
+        try {
+            const { data, error } = await supabase.auth.signInWithOAuth({
+                provider: 'google',
+                options: {
+                    queryParams: {
+                        access_type: 'offline',
+                        prompt: 'consent',
+                    },
+                },
+            });
+
+            if (data) console.log(data); router.reload();
+        } catch (error) {
+            console.error('Google login error:', error);
+        }
     };
 
     const handleFacebookSignup = () => {

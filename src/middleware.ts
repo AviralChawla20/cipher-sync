@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
     console.log(session);
     
     if (!session) {
-        return NextResponse.rewrite('/signin');
+        return NextResponse.rewrite('http://localhost:3000/signin');
     }
 
     return res;
