@@ -1,14 +1,30 @@
 // pages/index.tsx
 "use client";
 import { useState } from 'react';
+import { supabase } from "@/lib/supabase";
+import { useRouter } from 'next/navigation';
+
 
 const LoginPage = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleEmailLogin = () => {
+    const router = useRouter();
+
+    const handleEmailLogin = async () => {
         // Implement your email authentication logic here
         console.log('Email Login:', email, password);
+        try {
+            let { data, error } = await supabase.auth.signInWithPassword({
+                email: email,
+                password: password,
+            });
+
+            if (data) router.refresh();
+        }
+        catch (error) {
+            console.log(error);
+        }
     };
 
     const handleGoogleLogin = () => {
@@ -37,6 +53,7 @@ const LoginPage = () => {
                         className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
                         placeholder="Enter your email"
                         value={email}
+                        style={{ color: "black" }}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
@@ -51,6 +68,7 @@ const LoginPage = () => {
                         className="mt-1 p-2 w-full border rounded-md focus:outline-none focus:border-blue-500"
                         placeholder="Enter your password"
                         value={password}
+                        style={{ color: "black" }}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
