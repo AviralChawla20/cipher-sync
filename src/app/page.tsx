@@ -117,12 +117,12 @@ const LandingPage: React.FC = () => {
             {/* Footer */}
           </div>
         </div>
-        <div className="relative h-screen group" style={{ position: "absolute", top: '0', left: '0' }}>
+        {/* <div className="relative h-screen group" style={{ position: "absolute", top: '0', left: '0' }}>
           <Spline
             scene="https://prod.spline.design/fPLMyfl-Ht8fb4PG/scene.splinecode"
             className="fixed top-0 left-0 w-full h-full z-[-1] transition-transform duration-300 ease-in-out group-hover:scale-105 group-hover:rotate-6"
           />
-        </div>
+        </div> */}
       </body>
     </>
   );
